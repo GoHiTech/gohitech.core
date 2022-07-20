@@ -4,14 +4,17 @@ Documentation for the collection.
 
 ## Deploy using git clone
 
-The Collection is using Git Submodules with SSH reference for team development.
-If you do not have SSH keys for the project the submodule pull request will fail.
+The Collection is using Git Submodules to pool a collection of roles.
+IT does nto appear that the `ansible-galaxy collections` git pull command will work with submodules.
 The following steps will allow the operation to function as expected.
 
 ```bash
-# Clone the parent directory only
+# Make the collection parent namespace directory
+# This is the default location so change this path if you have modified your Ansible config.
 mkdir -p ~/.ansible/collections/ansible-collections/gohitech
-git clone https://github.com/GoHiTech/gohitech.core.git ~/.ansible/collections/ansible-collections/gohitech/core
+
+# Git clone the repository and the submodules
+git clone --recursive https://github.com/GoHiTech/gohitech.core.git ~/.ansible/collections/ansible-collections/gohitech/core
 
 # Update Git Submodule references to the HTTPS equivalent
 cd ~/.ansible/collections/ansible-collections/gohitech/core
