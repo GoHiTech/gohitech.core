@@ -23,6 +23,7 @@ jobs:
       - name: Deploy Ansible Galaxy Collection
         uses: artis3n/ansible_galaxy_collection@v2.8.1
         with:
+          api_key: NOT_REQUIRED_GALAXY_API_KEY
           publish: false
 
       # https://github.com/marketplace/actions/gh-release
