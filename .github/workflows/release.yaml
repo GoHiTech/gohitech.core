@@ -4,6 +4,9 @@
 #
 name: Release and deploy collection
 on:
+  push:
+    tags:
+      - "v*"
   workflow_dispatch:
 
 jobs:
