@@ -2,33 +2,19 @@
 
 Documentation for the collection.
 
-## Deploy using git clone
-
-The Collection is using Git Submodules to pool a collection of roles.
-IT does nto appear that the `ansible-galaxy collections` git pull command will work with submodules.
-The following steps will allow the operation to function as expected.
+## Deploy
 
 ```bash
-# Make the collection parent namespace directory
-# This is the default location so change this path if you have modified your Ansible config.
-mkdir -p ~/.ansible/collections/ansible-collections/gohitech
-
-# Git clone the repository and the submodules
-git clone --recursive https://github.com/GoHiTech/gohitech.core.git ~/.ansible/collections/ansible-collections/gohitech/core
-
-# Update Git Submodule references to the HTTPS equivalent
-cd ~/.ansible/collections/ansible-collections/gohitech/core
-git submodule set-url -- roles/docker https://github.com/dean-taylor/ansible-role-docker.git
-git submodule set-url -- roles/glusterfs https://github.com/dean-taylor/ansible-role-glusterfs.git
-git submodule set-url -- roles/microk8s https://github.com/dean-taylor/ansible-role-microk8s.git
-git submodule update --init --recursive
+ansible-galaxy collection install https://github.com/GoHiTech/gohitech.core/releases/download/v0.2.5/gohitech-core-0.2.5.tar.gz
 ```
 
-With SSH keys
+requirements.yml
 
-```bash
-mkdir -p ~/.ansible/collections/ansible-collections/gohitech
-git clone --recursive https://github.com/GoHiTech/gohitech.core.git ~/.ansible/collections/ansible-collections/gohitech/core
+```yaml
+collections:
+  - name: gohitech.core
+    source: https://github.com/GoHiTech/gohitech.core/releases/download/v0.2.5/gohitech-core-0.2.5.tar.gz
+    type: url
 ```
 
 ## Development
