@@ -1,0 +1,10 @@
+# collection/gohitech/core/tests/sanity/ignore-2.13.txt
+# https://docs.ansible.com/ansible/latest/dev_guide/testing/sanity/ignores.html
+# https://docs.ansible.com/ansible/latest/dev_guide/developing_collections_testing.html
+# ansible-test sanity -v
+# ansible-test sanity --docker default -v
+#
+roles/docker/templates/docker.fact.j2 shebang
+roles/glusterfs/templates/glusterfs.fact.j2 shebang
+roles/microk8s/files/microk8s.fact shebang
+roles/microk8s/files/KUBECONFIG.sh shellcheck:SC2086

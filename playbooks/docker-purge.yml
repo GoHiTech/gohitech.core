@@ -1,0 +1,31 @@
+---
+# playbooks/docker-purge.yml
+# Remove Docker from the host
+#
+- hosts: all
+  tasks:
+    - name: packages cleanup
+      ansible.builtin.package:
+        name:
+          - docker
+          - docker-engine
+          - docker.io
+          - containerd
+          - runc
+          - docker-ce
+          - docker-ce-cli
+          - docker-ce-rootless-extras
+          - docker-scan-plugin
+        state: absent
+
+    # https://docs.docker.com/network/iptables/
+    - name: firewall rules cleanup
+      ansible.builtin.shell:
+        cmd: |
+          CHAINS=( DOCKER DOCKER-USER DOCKER-ISOLATION-STAGE-1 DOCKER-ISOLATION-STAGE-2 )
+          for CHAIN in "${CHAINS[@]}"; do
+            iptables -F $CHAIN
+            iptables -X $CHAIN
+          done
+          iptables -F FORWARD
+          iptables -P FORWARD ACCEPT

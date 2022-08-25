@@ -1,12 +1,15 @@
 [submodule "roles/microk8s"]
 	path = roles/microk8s
-	url = https://github.com/dean-taylor/ansible-role-microk8s.git
+	url = git@github.com:dean-taylor/ansible-role-microk8s.git
 	branch = main
 [submodule "roles/glusterfs"]
 	path = roles/glusterfs
-	url = https://github.com/dean-taylor/ansible-role-glusterfs.git
+	url = git@github.com:dean-taylor/ansible-role-glusterfs.git
 	branch = main
 [submodule "roles/docker"]
 	path = roles/docker
-	url = https://github.com/dean-taylor/ansible-role-docker.git
+	url = git@github.com:dean-taylor/ansible-role-docker.git
 	branch = main
+[submodule "roles/lxd"]
+	path = roles/lxd
+	url = git@github.com:dean-taylor/ansible-role-lxd.git
