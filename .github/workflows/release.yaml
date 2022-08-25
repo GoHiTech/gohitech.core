@@ -31,12 +31,12 @@ jobs:
 
       # https://github.com/marketplace/actions/ansible-test
       # collection-src-directory: A pre-checked out collection directory that's already on disk
-      - name: ansible-test
-        uses: ansible-community/ansible-test-gh-action@v1.7.0
-        with:
-          ansible-core-version: stable-2.13
-          collection-src-directory: /home/runner/work/gohitech.core/gohitech.core
-          testing-type: sanity
+      #- name: ansible-test
+      #  uses: ansible-community/ansible-test-gh-action@v1.7.0
+      #  with:
+      #    ansible-core-version: stable-2.13
+      #    collection-src-directory: /home/runner/work/gohitech.core/gohitech.core
+      #    testing-type: sanity
 
       - name: Deploy Ansible Galaxy Collection
         uses: artis3n/ansible_galaxy_collection@v2.8.1
